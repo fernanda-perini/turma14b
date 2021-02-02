@@ -37,4 +37,10 @@ public class Funcionario {
     public String getDados() {
         return nome + ", R$ " + salario;
     }
+
+    public void aumentarSalario(double percentual) {
+        if( percentual > 0 && percentual <= 100) {
+            salario = salario + salario * percentual / 100;
+        }
+    }
 }

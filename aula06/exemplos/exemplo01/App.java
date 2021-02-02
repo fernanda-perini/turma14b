@@ -2,17 +2,15 @@ package exemplos.exemplo01;
 
 public class App {
     public static void main(String[] args) {
-        Funcionario f = new Funcionario("Marcos", 3000);
-        Funcionario f2 = new Funcionario("Julia");
-        // Funcionario f3 = new Funcionario();
+        Funcionario f = new Funcionario("Marcos", 1000);
+        Gerente g = new Gerente("Carlos", 1000, 10);
 
-         Gerente g = new Gerente("Amanda");
+        f.aumentarSalario(10);
+        g.aumentarSalario(10); 
 
-        // f.setNome("Antônio");
-        System.out.println("Funcionario: " + f.getNome());
+        System.out.println(f.getDados());
+        System.out.println(g.getDados());
 
-        // g.setNome("Carlos");
-        System.out.println("Gerente: " + g.getNome());
-        System.out.println("Gerente: " + g.getNome("sra."));
+
     }
 }
