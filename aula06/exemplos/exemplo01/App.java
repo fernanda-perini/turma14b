@@ -11,6 +11,7 @@ public class App {
         System.out.println(f.getDados());
         System.out.println(g.getDados());
 
-
+        System.out.println(f);
+        System.out.println(g);
     }
 }

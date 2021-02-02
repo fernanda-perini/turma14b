@@ -43,4 +43,10 @@ public class Funcionario {
             salario = salario + salario * percentual / 100;
         }
     }
+
+    @Override
+    public String toString() {
+        // return nome + ", R$ " + salario;
+        return getDados();
+    }
 }

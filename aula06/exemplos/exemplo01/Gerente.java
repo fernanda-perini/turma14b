@@ -22,4 +22,5 @@ public class Gerente extends Funcionario {
     public void aumentarSalario(double percentual) {
         super.aumentarSalario(percentual + 20);
     }
+
 }
