@@ -1,7 +1,7 @@
 package exercicios.exercicio03;
 
 public class ContaCorrente extends Conta {
-    // final- constante -  não pode mudar de valor
+    // final- constante - não pode mudar de valor
     private final double TAXA_DEPOSITO = 0.1;
 
     public ContaCorrente(int numero) {
@@ -9,17 +9,19 @@ public class ContaCorrente extends Conta {
     }
 
     @Override
-    public void saque(double valor) {
+    public boolean saque(double valor) {
         if (valor <= getSaldo()) {
-            super.saque(valor);
+            return super.saque(valor);
         }
+        return false;// saldo insuficiente
     }
 
     @Override
-    public void deposito(double valor) {
-        if(valor >= TAXA_DEPOSITO) {
-            super.deposito(valor - TAXA_DEPOSITO);
+    public boolean deposito(double valor) {
+        if (valor >= TAXA_DEPOSITO) {
+            return super.deposito(valor - TAXA_DEPOSITO);
         }
+        return false;
     }
 
     @Override

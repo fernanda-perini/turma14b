@@ -13,20 +13,24 @@ public abstract class Conta {
         return numero;
     }
 
-    public double getSaldo(){
+    public double getSaldo() {
         return saldo;
     }
 
-    public void deposito(double valor) {
-        if( valor > 0) {
-            saldo = saldo + valor;
+    public boolean deposito(double valor) {
+        if (valor > 0) {
+            saldo += valor;
+            return true;
         }
+        return false;
     }
 
-    public void saque(double valor) {
-        if( valor > 0) {
+    public boolean saque(double valor) {
+        if (valor > 0) {
             saldo = saldo - valor;
+            return true;
         }
+        return false;
     }
 
 }

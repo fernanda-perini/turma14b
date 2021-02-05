@@ -1,6 +1,5 @@
 package exercicios.exercicio03;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AppConta {
@@ -9,8 +8,10 @@ public class AppConta {
         int opcao;
 
         int numeroConta;
-        ContaCorrente cc = null;
-        ArrayList<ContaCorrente> contas = new ArrayList<>();
+        double limite;
+        double valor;
+
+        GerenciaConta gerencia = new GerenciaConta();
 
         do {
             System.out.println("1-Nova Conta Corrente");
@@ -27,24 +28,63 @@ public class AppConta {
                 case 1:
                     System.out.println("Informe o número da conta:");
                     numeroConta = teclado.nextInt();
-                    cc = new ContaCorrente(numeroConta);
-                    contas.add(cc); 
+                    gerencia.novaContaCorrente(numeroConta);
                     break;
+
                 case 2:
-                    System.out.println("Opção 2");
+                    System.out.println("Informe o número da conta:");
+                    numeroConta = teclado.nextInt();
+                    System.out.println("Informe o limite:");
+                    limite = teclado.nextDouble();
+                    gerencia.novaContaEspecial(numeroConta, limite);
                     break;
+
                 case 3:
-                    System.out.println("Opção 3");
+                    System.out.println("Informe o número da conta:");
+                    numeroConta = teclado.nextInt();
+                    gerencia.novaContaPoupanca(numeroConta);
                     break;
+
                 case 4:
-                    System.out.println("Opção 4");
+                    System.out.println("Informe o número da conta:");
+                    numeroConta = teclado.nextInt();
+                    System.out.println("Informe o valor do saque:");
+                    valor = teclado.nextDouble();
+
+                    boolean sucesso = gerencia.saque(numeroConta, valor);
+
+                    if( sucesso ){
+                        System.out.println("saque realizado com sucesso!");
+                    }else{
+                        System.out.println("falha ao realizar o saque.");
+                    }
+
                     break;
+
                 case 5:
-                    System.out.println("Opção 5");
+                    System.out.println("Informe o número da conta:");
+                    numeroConta = teclado.nextInt();
+                    System.out.println("Informe o valor do depósito:");
+                    valor = teclado.nextDouble();
+
+                    boolean depositou = gerencia.deposito(numeroConta, valor);
+
+                    if (depositou) {
+                        System.out.println("Depósito realizado.");
+                    } else {
+                        System.out.println("Depósito não realizado.");
+                    }
+
                     break;
+
                 case 6:
-                    System.out.println(contas);
+                    System.out.println("Informe o número da conta:");
+                    numeroConta = teclado.nextInt();
+
+                    System.out.println(gerencia.exibirSaldo(numeroConta));
+
                     break;
+
                 case 7:
                     break;
 
