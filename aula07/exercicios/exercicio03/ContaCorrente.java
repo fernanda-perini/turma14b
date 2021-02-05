@@ -22,4 +22,9 @@ public class ContaCorrente extends Conta {
         }
     }
 
+    @Override
+    public String toString() {
+        return "CC: " + getNumero() + " saldo: " + getSaldo();
+    }
+
 }
