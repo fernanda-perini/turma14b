@@ -7,13 +7,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity  // classe será mapeada no BD
+@Entity // classe será mapeada no BD
 @Table(name = "clientes")
 public class Cliente {
 
     @Id // indica chave primaria
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 1, 2, 3, ...
-    @Column(name = "id") //nome da coluna no BD
+    @Column(name = "id") // nome da coluna no BD
     private int id;
 
     @Column(name = "nome", length = 150, nullable = false)
