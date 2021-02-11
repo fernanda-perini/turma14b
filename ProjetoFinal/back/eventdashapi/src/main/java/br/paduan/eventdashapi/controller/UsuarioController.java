@@ -21,9 +21,15 @@ public class UsuarioController {
 
 	@PostMapping("/login")
 	public ResponseEntity<Usuario> login(@RequestBody Usuario usuario) {
-		Usuario userFound = null;
+		Usuario userFound = repo.findByEmailOrRacf(usuario.getEmail(), usuario.getRacf());
 
-
+		if(userFound != null){ // achou o usuario no banco de dados
+			if(userFound.getSenha().equals(usuario.getSenha())){
+				userFound.setSenha("********");
+				return ResponseEntity.ok(userFound);
+			}
+		}
+		
 		return ResponseEntity.status(404).build(); // usuário não existe ou senha inválida
 	}
 
