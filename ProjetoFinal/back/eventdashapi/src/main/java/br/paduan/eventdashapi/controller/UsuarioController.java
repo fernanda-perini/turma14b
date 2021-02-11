@@ -1,0 +1,30 @@
+package br.paduan.eventdashapi.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.paduan.eventdashapi.model.Usuario;
+import br.paduan.eventdashapi.repository.UsuarioRepo;
+
+@RestController
+@CrossOrigin(origins = "*")
+@RequestMapping("/usuario")
+public class UsuarioController {
+
+	@Autowired
+	private UsuarioRepo repo;
+
+	@PostMapping("/login")
+	public ResponseEntity<Usuario> login(@RequestBody Usuario usuario) {
+		Usuario userFound = null;
+
+
+		return ResponseEntity.status(404).build(); // usuário não existe ou senha inválida
+	}
+
+}
